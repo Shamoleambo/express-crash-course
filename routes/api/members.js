@@ -53,4 +53,9 @@ router.put("/:id", (req, res) => {
   }
 });
 
+router.delete("/:id", (req, res) => {
+  const paramsUrlId = parseInt(req.params.id);
+  const found = members.some((member) => member.id === paramsUrlId);
+});
+
 module.exports = router;
