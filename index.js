@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const exphbs = require("express-handlebars");
+const members = require("./Members");
 
 const app = express();
 const hbs = exphbs.create({ defaultLayout: "main" });
@@ -8,7 +9,9 @@ const hbs = exphbs.create({ defaultLayout: "main" });
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
-app.get("/", (rq, res) => res.render("index", { title: "Member App" }));
+app.get("/", (rq, res) =>
+  res.render("index", { title: "Member App", members })
+);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
