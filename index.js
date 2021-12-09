@@ -8,6 +8,8 @@ const hbs = exphbs.create({ defaultLayout: "main" });
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
+app.get("/", (rq, res) => res.render("index", { title: "Member App" }));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
