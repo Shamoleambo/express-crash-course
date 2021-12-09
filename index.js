@@ -1,7 +1,12 @@
 const express = require("express");
 const path = require("path");
+const exphbs = require("express-handlebars");
 
 const app = express();
+const hbs = exphbs.create({ defaultLayout: "main" });
+
+app.engine("handlebars", hbs.engine);
+app.set("view engine", "handlebars");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
